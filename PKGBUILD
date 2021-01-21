@@ -1,14 +1,14 @@
-pkgname=pandoc
-pkgver=2.11.3.2
+pkgname=pandoc-crossref
+pkgver=0.3.9.0a
 pkgrel=1
-pkgdesc='The universal markup converter.'
+pkgdesc='Pandoc filter for cross-references.'
 arch=('x86_64')
-url='https://pandoc.org/'
-license=('GPLv2')
-depends=()
+url='https://lierdakil.github.io/pandoc-crossref/'
+license=('GPL-2.0')
+depends=('pandoc')
 makedepends=()
-source=("https://github.com/jgm/pandoc/releases/download/2.11.3.2/pandoc-${pkgver}-linux-amd64.tar.gz")
-md5sums=('49dbc470395c4c6580d107e23c79debd')
+source=("https://github.com/lierdakil/pandoc-crossref/releases/download/v${pkgver}/pandoc-crossref-Linux.tar.xz")
+md5sums=('64e1c596959987bfa7dd0c23a062dc47')
 
 src_name="pandoc-${pkgver}"
 
@@ -17,5 +17,5 @@ build() {
 }
 
 package() {
-    sudo tar xvzf pandoc-${pkgver}-linux-amd64.tar.gz --strip-components 1 -C /usr/local/
+    install -Dm 755 "pandoc-crossref" "${pkgdir}/usr/bin/pandoc-crossref"
 }
